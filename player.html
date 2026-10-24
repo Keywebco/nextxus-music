@@ -30,6 +30,7 @@ footer{color:var(--dim);font-size:.9rem;margin-top:1.5rem}
 a{color:var(--cyan)}
 body.embed header.top, body.embed footer{display:none}
 body.embed{padding:.5rem}
+body.embed #banner{display:none}
 </style>
 </head>
 <body>
@@ -37,6 +38,7 @@ body.embed{padding:.5rem}
 <h1>&#127925; NextXus Music Player</h1>
 <p class="sub">Roger's playlist — streamed free from GitHub. Tap any song to play.</p>
 </header>
+<video id="banner" autoplay muted loop playsinline style="width:100%;border-radius:.8rem;border:1px solid var(--line);display:block;margin-bottom:1rem"></video>
 <div id="nowplaying">
   <div class="label">Now playing</div>
   <div class="title" id="nptitle">Pick a song below</div>
@@ -53,6 +55,7 @@ body.embed{padding:.5rem}
 if (new URLSearchParams(location.search).get("embed") === "1") document.body.classList.add("embed");
 var RELEASE_TAG = "playlist-v1";
 var ASSET_BASE = "https://github.com/Keywebco/nextxus-music/releases/download/" + RELEASE_TAG + "/";
+document.getElementById("banner").src = ASSET_BASE + "player-banner.mp4";
 var tracks = [], idx = -1;
 var audio = document.getElementById("audio");
 var nptitle = document.getElementById("nptitle");
