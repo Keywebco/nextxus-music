@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Ring of 12 podcast RSS feed, hosted on GitHub Pages via Keywebco/nextxus-music.
-     Fallback host: the dedicated nextxus-podcast repo could not be created
-     (GitHub App create_repository returned 403), so this feed lives in
-     nextxus-music instead. Do NOT submit to Spotify until Roger checks in
-     Spotify for Creators whether the existing Ring of 12 show is RSS-linked
-     or Spotify-hosted. -->
+     Source for platforms to create a show from: this feed, not the Spotify show page.
+     Feed: https://keywebco.github.io/nextxus-music/podcast.xml
+     Sovereign form: https://next-xus.net/nextxus-music/podcast.xml -->
 <rss version="2.0"
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:atom="http://www.w3.org/2005/Atom">
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
   <channel>
     <title>Ring of 12</title>
     <link>https://open.spotify.com/show/24ji2KxwhpJ1ORNxc9rKnr</link>
-    <description>How human and AI can work together for 200 years using the Federation — the NextXus HumanCodex. Blog posts from NextXus HumanCodex and NextXus HumanCodex AI Tips, turned into narrated episodes by AI, so new episodes appear automatically once this feed is submitted.</description>
+    <description>How human and AI can work together for 200 years using the Federation — the NextXus HumanCodex.</description>
     <language>en</language>
-    <copyright>Copyright Roger Keyserling and the HumanCodex Nextxus Federation</copyright>
+    <copyright>Copyright © 2026 Roger Keyserling</copyright>
     <managingEditor>roger@next-xus.net (Roger Keyserling)</managingEditor>
+    <webMaster>roger@next-xus.net (Roger Keyserling)</webMaster>
+    <lastBuildDate>Wed, 04 Nov 2026 05:38:27 GMT</lastBuildDate>
+    <ttl>60</ttl>
+    <generator>NextXus HumanCodex podcast feed, hosted on GitHub Pages (Keywebco/nextxus-music)</generator>
     <atom:link href="https://keywebco.github.io/nextxus-music/podcast.xml" rel="self" type="application/rss+xml"/>
+    <podcast:locked owner="roger@next-xus.net">yes</podcast:locked>
+    <podcast:guid>789ecece-8c42-4585-9ee9-0050da7ac32f</podcast:guid>
+    <itunes:summary>How human and AI can work together for 200 years using the Federation — the NextXus HumanCodex.</itunes:summary>
+    <itunes:subtitle>How human and AI can work together for 200 years using the Federation.</itunes:subtitle>
     <itunes:image href="https://keywebco.github.io/nextxus-music/episodes/episode-cover.jpg"/>
     <itunes:author>Roger Keyserling</itunes:author>
     <itunes:owner>
       <itunes:name>Roger Keyserling</itunes:name>
       <itunes:email>roger@next-xus.net</itunes:email>
     </itunes:owner>
+    <itunes:category text="Society &amp; Culture">
+      <itunes:category text="Philosophy"/>
+    </itunes:category>
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
     <item>
       <title>The Immutable HumanCodex NextXus</title>
       <description>A narrated discussion of Roger Keyserling's Immutable HumanCodex NextXus framework: designing knowledge, governance, and AI systems to survive and stay honest for 200 years, with a verification layer, a 95% truth gate, twelve reviewing perspectives, and a single core with modular satellites.</description>
+      <itunes:summary>A narrated discussion of Roger Keyserling's Immutable HumanCodex NextXus framework: designing knowledge, governance, and AI systems to survive and stay honest for 200 years, with a verification layer, a 95% truth gate, twelve reviewing perspectives, and a single core with modular satellites.</itunes:summary>
+      <itunes:subtitle>Designing knowledge, governance, and AI systems to survive and stay honest for 200 years.</itunes:subtitle>
       <link>https://humancodexnextxus.blogspot.com/</link>
-      <guid isPermaLink="false">ring-of-12-episode-the-immutable-humancodex-nextxus-2026-09-30</guid>
+      <guid isPermaLink="true">https://keywebco.github.io/nextxus-music/episodes/the-immutable-humancodex-nextxus-2026-09-30.mp3</guid>
       <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
       <enclosure url="https://keywebco.github.io/nextxus-music/episodes/the-immutable-humancodex-nextxus-2026-09-30.mp3" length="3398821" type="audio/mpeg"/>
       <itunes:duration>424</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://keywebco.github.io/nextxus-music/episodes/episode-cover.jpg"/>
     </item>
   </channel>
 </rss>
