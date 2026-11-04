@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ring of 12 podcast RSS feed, hosted on GitHub Pages via Keywebco/nextxus-music.
+     Fallback host: the dedicated nextxus-podcast repo could not be created
+     (GitHub App create_repository returned 403), so this feed lives in
+     nextxus-music instead. Do NOT submit to Spotify until Roger checks in
+     Spotify for Creators whether the existing Ring of 12 show is RSS-linked
+     or Spotify-hosted. -->
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ring of 12</title>
+    <link>https://open.spotify.com/show/24ji2KxwhpJ1ORNxc9rKnr</link>
+    <description>How human and AI can work together for 200 years using the Federation — the NextXus HumanCodex. Blog posts from NextXus HumanCodex and NextXus HumanCodex AI Tips, turned into narrated episodes by AI, so new episodes appear automatically once this feed is submitted.</description>
+    <language>en</language>
+    <copyright>Copyright Roger Keyserling and the HumanCodex Nextxus Federation</copyright>
+    <managingEditor>roger@next-xus.net (Roger Keyserling)</managingEditor>
+    <atom:link href="https://keywebco.github.io/nextxus-music/podcast.xml" rel="self" type="application/rss+xml"/>
+    <itunes:image href="https://keywebco.github.io/nextxus-music/episodes/episode-cover.jpg"/>
+    <itunes:author>Roger Keyserling</itunes:author>
+    <itunes:owner>
+      <itunes:name>Roger Keyserling</itunes:name>
+      <itunes:email>roger@next-xus.net</itunes:email>
+    </itunes:owner>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <item>
+      <title>The Immutable HumanCodex NextXus</title>
+      <description>A narrated discussion of Roger Keyserling's Immutable HumanCodex NextXus framework: designing knowledge, governance, and AI systems to survive and stay honest for 200 years, with a verification layer, a 95% truth gate, twelve reviewing perspectives, and a single core with modular satellites.</description>
+      <link>https://humancodexnextxus.blogspot.com/</link>
+      <guid isPermaLink="false">ring-of-12-episode-the-immutable-humancodex-nextxus-2026-09-30</guid>
+      <pubDate>Wed, 30 Sep 2026 12:00:00 GMT</pubDate>
+      <enclosure url="https://keywebco.github.io/nextxus-music/episodes/the-immutable-humancodex-nextxus-2026-09-30.mp3" length="3398821" type="audio/mpeg"/>
+      <itunes:duration>424</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+    </item>
+  </channel>
+</rss>
