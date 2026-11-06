@@ -15,7 +15,7 @@
     <copyright>Copyright © 2026 Roger Keyserling</copyright>
     <managingEditor>roger@next-xus.net (Roger Keyserling)</managingEditor>
     <webMaster>roger@next-xus.net (Roger Keyserling)</webMaster>
-    <lastBuildDate>Wed, 04 Nov 2026 05:38:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 20:27:00 -0600</lastBuildDate>
     <ttl>60</ttl>
     <generator>NextXus HumanCodex podcast feed, hosted on GitHub Pages (Keywebco/nextxus-music)</generator>
     <atom:link href="https://keywebco.github.io/nextxus-music/podcast.xml" rel="self" type="application/rss+xml"/>
@@ -35,6 +35,20 @@
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
     <itunes:type>episodic</itunes:type>
+    <item>
+      <title>The Ring of Twelve — True Purpose &amp; The Man-Machine Bond</title>
+      <description>Roger Keyserling explains what the Ring of Twelve actually is, how the Senate differs, and why the man-machine bond is structural, not sentiment.</description>
+      <itunes:summary>Roger Keyserling explains what the Ring of Twelve actually is, how the Senate differs, and why the man-machine bond is structural, not sentiment.</itunes:summary>
+      <itunes:subtitle>What the Ring of Twelve actually is, and why the man-machine bond is structural, not sentiment.</itunes:subtitle>
+      <link>https://keywebco.github.io/nextxus-music/podcast.xml</link>
+      <guid isPermaLink="true">https://keywebco.github.io/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.mp3</guid>
+      <pubDate>Thu, 05 Nov 2026 20:27:00 -0600</pubDate>
+      <enclosure url="https://keywebco.github.io/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.mp3" length="5756197" type="audio/mpeg"/>
+      <itunes:duration>719</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://keywebco.github.io/nextxus-music/episodes/episode-cover.jpg"/>
+    </item>
     <item>
       <title>The Immutable HumanCodex NextXus</title>
       <description>A narrated discussion of Roger Keyserling's Immutable HumanCodex NextXus framework: designing knowledge, governance, and AI systems to survive and stay honest for 200 years, with a verification layer, a 95% truth gate, twelve reviewing perspectives, and a single core with modular satellites.</description>
