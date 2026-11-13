@@ -298,5 +298,44 @@ if (isOwner) document.getElementById('aiStatus').textContent = 'Owner mode: max 
     <small>Plain HTML, no tracking, no cookies. Hosted free on GitHub Pages. Page built 2026-10-01.</small>
   </div>
 </footer>
+<!-- Federation guide bot: the same guide bot as on every Federation site. A guide and a tour, not a live AI chat. Added 2026-11-13, branch-first. -->
+<style>
+#fedGuideBtn{position:fixed;right:16px;bottom:64px;width:64px;height:64px;border-radius:50%;border:2px solid #00ff88;background:#0a0a0a url("guide-bot.jpg") center/cover no-repeat;padding:0;cursor:pointer;z-index:60;box-shadow:0 0 14px rgba(0,255,136,.35)}
+#fedGuidePanel{position:fixed;right:16px;bottom:140px;width:340px;max-width:calc(100vw - 32px);max-height:70vh;overflow-y:auto;background:#0a0f0b;color:#e0e0e0;border:2px solid #00ff88;border-radius:12px;padding:14px 16px;z-index:61;display:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.5;text-align:left}
+#fedGuidePanel.open{display:block}
+#fedGuidePanel h2{margin:0 34px 8px 0;color:#00ff88;font-size:1.15rem}
+#fedGuidePanel h3{margin:14px 0 4px;color:#00ff88;font-size:.95rem}
+#fedGuidePanel p{margin:6px 0}
+#fedGuidePanel ul{margin:4px 0;padding-left:20px}
+#fedGuidePanel li{margin:4px 0}
+#fedGuidePanel a{color:#00d4ff}
+#fedGuideClose{position:absolute;top:8px;right:10px;background:none;border:none;color:#e0e0e0;font-size:22px;line-height:1;cursor:pointer;padding:4px 6px}
+#fedGuidePanel .fedGuideFace{font-style:italic}
+</style>
+<button id="fedGuideBtn" aria-label="Federation guide &mdash; open the tour" title="Federation guide"></button>
+<div id="fedGuidePanel" role="dialog" aria-label="Federation guide">
+<button id="fedGuideClose" aria-label="Close the Federation guide">&times;</button>
+<h2>Federation guide</h2>
+<p class="fedGuideFace">This is a guide and a tour, not a live AI chat. It walks you through the Federation. Nothing here answers back.</p>
+<h3>The four doors</h3>
+<ul>
+<li><a href="https://next-xus.net/">Tools</a> &mdash; live</li>
+<li><a href="https://next-xus.info/">Guides</a> &mdash; live</li>
+<li>Maps &mdash; https://next-xus.org/ &mdash; not built yet</li>
+<li><a href="https://next-xus.biz/">Systems</a> &mdash; live</li>
+</ul>
+<h3>On this site &mdash; NextXus Music</h3>
+<ul>
+<li><a href="https://next-xus.net/nextxus-music/">NextXus Music home</a></li>
+<li><a href="https://next-xus.net/nextxus-music/player.html">Music player</a></li>
+<li><a href="https://next-xus.net/nextxus-music/podcast.xml">Podcast feed</a></li>
+<li><a href="https://next-xus.net/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.html">The Ring of Twelve &mdash; True Purpose &amp; The Man-Machine Bond</a></li>
+</ul>
+<h3>Messages from Roger</h3>
+<p>Message recording to be supplied by Roger.</p>
+</div>
+<script>
+(function(){var b=document.getElementById('fedGuideBtn'),p=document.getElementById('fedGuidePanel'),c=document.getElementById('fedGuideClose');b.addEventListener('click',function(){p.classList.toggle('open');});c.addEventListener('click',function(){p.classList.remove('open');});var chat=document.getElementById('chatPanel');if(chat&&window.MutationObserver){var show=function(){var open=chat.classList.contains('open');b.style.display=open?'none':'';if(open)p.classList.remove('open');};new MutationObserver(show).observe(chat,{attributes:true,attributeFilter:['class']});show();}})();
+</script>
 </body>
 </html>
