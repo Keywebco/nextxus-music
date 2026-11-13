@@ -106,7 +106,7 @@ fetch("playlist.json").then(function(r){ return r.json(); }).then(function(j){
   nptitle.textContent = "Could not load the playlist.";
 });
 </script>
-<!-- Federation guide bot: the same guide bot as on every Federation site. A guide and a tour, not a live AI chat. Added 2026-11-13, branch-first. -->
+<!-- Federation guide bot: the same guide bot as on every Federation site. The Federation's guide — a mini Federation. Added 2026-11-13, branch-first. -->
 <style>
 #fedGuideBtn{position:fixed;right:16px;bottom:16px;width:64px;height:64px;border-radius:50%;border:2px solid #00ff88;background:#0a0a0a url("guide-bot.jpg") center/cover no-repeat;padding:0;cursor:pointer;z-index:60;box-shadow:0 0 14px rgba(0,255,136,.35)}
 #fedGuidePanel{position:fixed;right:16px;bottom:92px;width:340px;max-width:calc(100vw - 32px);max-height:70vh;overflow-y:auto;background:#0a0f0b;color:#e0e0e0;border:2px solid #00ff88;border-radius:12px;padding:14px 16px;z-index:61;display:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.5;text-align:left}
@@ -119,18 +119,30 @@ fetch("playlist.json").then(function(r){ return r.json(); }).then(function(j){
 #fedGuidePanel a{color:#00d4ff}
 #fedGuideClose{position:absolute;top:8px;right:10px;background:none;border:none;color:#e0e0e0;font-size:22px;line-height:1;cursor:pointer;padding:4px 6px}
 #fedGuidePanel .fedGuideFace{font-style:italic}
+#fedChatList{max-height:180px;overflow-y:auto;border:1px solid rgba(0,255,136,.35);border-radius:8px;padding:8px;margin:8px 0;background:#050806}
+#fedChatList:empty{display:none}
+#fedChatList .fedChatMsg{margin:6px 0;overflow-wrap:break-word}
+#fedChatList .fedChatMsg b{color:#00ff88}
+#fedChatList .fedChatMsg.fedChatSim b{color:#00d4ff}
+#fedChatRow{display:flex;gap:6px;margin:8px 0}
+#fedChatInput{flex:1;min-width:0;background:#000;color:#fff;border:1px solid rgba(0,255,136,.35);border-radius:6px;padding:8px;font-size:15px}
+#fedChatSend{background:#00ff88;color:#04120a;border:none;border-radius:6px;padding:8px 12px;font-weight:700;cursor:pointer;font-size:15px}
+#fedChatSend:disabled{opacity:.5;cursor:default}
 body.embed #fedGuideBtn,body.embed #fedGuidePanel{display:none!important}
 </style>
 <button id="fedGuideBtn" aria-label="Federation guide &mdash; open the tour" title="Federation guide"></button>
 <div id="fedGuidePanel" role="dialog" aria-label="Federation guide">
 <button id="fedGuideClose" aria-label="Close the Federation guide">&times;</button>
 <h2>Federation guide</h2>
-<p class="fedGuideFace">This is a guide and a tour, not a live AI chat. It walks you through the Federation. Nothing here answers back.</p>
+<p class="fedGuideFace">This is the Federation&rsquo;s guide &mdash; a mini Federation. Ask it a question and it answers from the Federation.</p>
+<p>Answers come from Roger Sim, the Federation&rsquo;s working model, answering from Federation material.</p>
+<div id="fedChatList" aria-live="polite"></div>
+<div id="fedChatRow"><input id="fedChatInput" type="text" placeholder="Ask about the Federation&hellip;" aria-label="Ask the Federation guide"><button id="fedChatSend" type="button">Send</button></div>
 <h3>The four doors</h3>
 <ul>
 <li><a href="https://next-xus.net/">Tools</a> &mdash; live</li>
 <li><a href="https://next-xus.info/">Guides</a> &mdash; live</li>
-<li>Maps &mdash; https://next-xus.org/ &mdash; not built yet</li>
+<li><a href="https://next-xus.org/">Maps</a> &mdash; live</li>
 <li><a href="https://next-xus.biz/">Systems</a> &mdash; live</li>
 </ul>
 <h3>On this site &mdash; NextXus Music</h3>
@@ -144,7 +156,50 @@ body.embed #fedGuideBtn,body.embed #fedGuidePanel{display:none!important}
 <p>Message recording to be supplied by Roger.</p>
 </div>
 <script>
-(function(){var b=document.getElementById('fedGuideBtn'),p=document.getElementById('fedGuidePanel'),c=document.getElementById('fedGuideClose');b.addEventListener('click',function(){p.classList.toggle('open');});c.addEventListener('click',function(){p.classList.remove('open');});})();
+(function(){var b=document.getElementById('fedGuideBtn'),p=document.getElementById('fedGuidePanel'),c=document.getElementById('fedGuideClose');b.addEventListener('click',function(){p.classList.toggle('open');});c.addEventListener('click',function(){p.classList.remove('open');});
+var chatList=document.getElementById('fedChatList'),chatInput=document.getElementById('fedChatInput'),chatSend=document.getElementById('fedChatSend');
+var FED_SEARCH='https://cse.google.com/cse?cx=b75161449de954fbb';
+function fedAddMsg(who,text,cls){var d=document.createElement('div');d.className='fedChatMsg'+(cls?' '+cls:'');var b=document.createElement('b');b.textContent=who+': ';d.appendChild(b);d.appendChild(document.createTextNode(text));chatList.appendChild(d);chatList.scrollTop=chatList.scrollHeight;return d;}
+function fedAddLinks(who,links){var d=document.createElement('div');d.className='fedChatMsg';var b=document.createElement('b');b.textContent=who+': ';d.appendChild(b);links.forEach(function(l,i){if(i)d.appendChild(document.createTextNode(' \u00b7 '));var a=document.createElement('a');a.href=l[1];a.textContent=l[0];a.style.color='#00d4ff';d.appendChild(a);});chatList.appendChild(d);chatList.scrollTop=chatList.scrollHeight;}
+function fedFallback(q){
+  fedAddMsg('Guide','The live Sim could not be reached from this page \u2014 here is what the Federation\u2019s own pages say:');
+  q=q.toLowerCase();
+  if(q.indexOf('podcast')>-1||q.indexOf('feed')>-1||q.indexOf('episode')>-1||q.indexOf('ring of twelve')>-1){
+    fedAddMsg('Guide','The Ring of Twelve podcast lives here: one episode so far, \u201cTrue Purpose & The Man-Machine Bond\u201d, 11 minutes 59 seconds, with the audio and cover on its episode page. New songs land in the RSS feed.');
+    fedAddLinks('Guide',[['Episode page','https://next-xus.net/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.html'],['Podcast feed','https://next-xus.net/nextxus-music/podcast.xml']]);
+  }else if(q.indexOf('tool')>-1){
+    fedAddMsg('Guide','The Federation tools live at the Tools door: 51 free tools, including the music player and the DeepAI tools.');
+    fedAddLinks('Guide',[['Tools','https://next-xus.net/'],['Music player','https://next-xus.net/nextxus-music/player.html']]);
+  }else if(q.indexOf('guide')>-1){
+    fedAddMsg('Guide','The Guides door holds the free AI guides.');
+    fedAddLinks('Guide',[['Guides','https://next-xus.info/']]);
+  }else if(q.indexOf('map')>-1){
+    fedAddMsg('Guide','The Maps door is live: learn, research and ask the truth.');
+    fedAddLinks('Guide',[['Maps','https://next-xus.org/']]);
+  }else if(q.indexOf('system')>-1||q.indexOf('federation')>-1||q.indexOf('biz')>-1){
+    fedAddMsg('Guide','The Systems door is the complete inventory of everything the Federation holds and uses.');
+    fedAddLinks('Guide',[['Systems','https://next-xus.biz/']]);
+  }else{
+    fedAddMsg('Guide','This site is NextXus Music: Federation songs made with Voices AI, a free player, and the Ring of Twelve podcast. Tap any song title on the home page to hear it.');
+    fedAddLinks('Guide',[['Music home','https://next-xus.net/nextxus-music/'],['Music player','https://next-xus.net/nextxus-music/player.html'],['Podcast feed','https://next-xus.net/nextxus-music/podcast.xml']]);
+  }
+  fedAddLinks('Guide',[['Search the whole Federation',FED_SEARCH]]);
+}
+function fedAsk(){
+  var q=chatInput.value.trim();if(!q)return;
+  fedAddMsg('You',q);chatInput.value='';
+  chatInput.disabled=true;chatSend.disabled=true;
+  var thinking=fedAddMsg('Roger Sim','Answering\u2026','fedChatSim');
+  var ctrl=new AbortController();var timer=setTimeout(function(){ctrl.abort();},60000);
+  fetch('https://roger-sim-api.onrender.com/proxy/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:q}]}),signal:ctrl.signal}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(function(j){
+    clearTimeout(timer);
+    var a=j&&j.choices&&j.choices[0]&&j.choices[0].message&&j.choices[0].message.content;
+    if(a&&String(a).trim()){thinking.remove();fedAddMsg('Roger Sim',String(a).trim(),'fedChatSim');}
+    else{thinking.remove();fedFallback(q);}
+  }).catch(function(){clearTimeout(timer);thinking.remove();fedFallback(q);}).finally(function(){chatInput.disabled=false;chatSend.disabled=false;chatInput.focus();});
+}
+chatSend.addEventListener('click',fedAsk);
+chatInput.addEventListener('keydown',function(e){if(e.key==='Enter')fedAsk();});})();
 </script>
 </body>
 </html>
