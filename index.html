@@ -341,6 +341,7 @@ if (isOwner) document.getElementById('aiStatus').textContent = 'Owner mode: max 
 <li><a href="https://next-xus.net/nextxus-music/">NextXus Music home</a></li>
 <li><a href="https://next-xus.net/nextxus-music/player.html">Music player</a></li>
 <li><a href="https://next-xus.net/nextxus-music/podcast.xml">Podcast feed</a></li>
+<li><a href="https://next-xus.net/nextxus-music/podcast.html">Podcast Center</a></li>
 <li><a href="https://next-xus.net/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.html">The Ring of Twelve &mdash; True Purpose &amp; The Man-Machine Bond</a></li>
 </ul>
 <h3>Messages from Roger</h3>
@@ -356,8 +357,8 @@ function fedFallback(q){
   fedAddMsg('Guide','The live Sim could not be reached from this page \u2014 here is what the Federation\u2019s own pages say:');
   q=q.toLowerCase();
   if(q.indexOf('podcast')>-1||q.indexOf('feed')>-1||q.indexOf('episode')>-1||q.indexOf('ring of twelve')>-1){
-    fedAddMsg('Guide','The Ring of Twelve podcast lives here: one episode so far, \u201cTrue Purpose & The Man-Machine Bond\u201d, 11 minutes 59 seconds, with the audio and cover on its episode page. New songs land in the RSS feed.');
-    fedAddLinks('Guide',[['Episode page','https://next-xus.net/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.html'],['Podcast feed','https://next-xus.net/nextxus-music/podcast.xml']]);
+    fedAddMsg('Guide','The Ring of Twelve podcast lives here: two episodes so far \u2014 \u201cTrue Purpose & The Man-Machine Bond\u201d (11 minutes 59 seconds) and \u201cThe Immutable HumanCodex NextXus\u201d (7 minutes 5 seconds) \u2014 with the audio and cover on each episode page. New episodes land in the RSS feed.');
+    fedAddLinks('Guide',[['Podcast Center','https://next-xus.net/nextxus-music/podcast.html'],['True Purpose episode','https://next-xus.net/nextxus-music/episodes/the-ring-of-twelve-true-purpose-the-man-machine-bond-2026-11-06.html'],['Immutable HumanCodex episode','https://next-xus.net/nextxus-music/episodes/the-immutable-humancodex-nextxus-2026-09-30.html'],['Podcast feed','https://next-xus.net/nextxus-music/podcast.xml']]);
   }else if(q.indexOf('tool')>-1){
     fedAddMsg('Guide','The Federation tools live at the Tools door: 51 free tools, including the music player and the DeepAI tools.');
     fedAddLinks('Guide',[['Tools','https://next-xus.net/'],['Music player','https://next-xus.net/nextxus-music/player.html']]);
