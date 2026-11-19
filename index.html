@@ -64,6 +64,10 @@ footer small{color:var(--dim)}
 @keyframes glow{0%,100%{text-shadow:0 0 8px rgba(0,255,136,.35)}50%{text-shadow:0 0 22px rgba(0,255,136,.75),0 0 40px rgba(0,212,255,.35)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 rgba(0,255,136,0)}50%{box-shadow:0 0 26px rgba(0,255,136,.25)}}
 @media (max-width:600px){.nx-nav-inner{padding:8px 12px}.nx-nav-links a{font-size:.72rem;padding:3px 7px}}
+#spotify{background:var(--panel);border:1px solid var(--line);border-radius:.8rem;padding:1rem 1.25rem;margin:40px 0 12px}
+#spotify h2{font-size:1.25rem;margin:.25rem 0 .5rem;border-left:none;padding-left:0}
+#spotify p{margin:.5rem 0}
+#spotify iframe{border:0;border-radius:.5rem;display:block}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -273,6 +277,15 @@ if (isOwner) document.getElementById('aiStatus').textContent = 'Owner mode: max 
 <p>These songs are made with Voices AI and reviewed by Roger Keyserling before they are published. The themes run through the whole Federation: code with a heart, machines that remember, and people who refuse to be broken. Rock, back-road grit and electronic glitch, all with one question underneath. What is more than code?</p>
 <p>More listening: <a href="https://open.spotify.com/show/0JP7csjWLqKNKOHbFMp3CR">HumanCodex Podcast on Spotify</a> &middot; <a href="https://youtube.com/@keyholetoday">YouTube</a> &middot; <a href="https://next-xus.com">Sovereign Store</a></p>
 <p>New songs land in the RSS feed: <a href="https://keywebco.github.io/nextxus-music/feed.xml">https://keywebco.github.io/nextxus-music/feed.xml</a></p></section>
+<section id="spotify" aria-labelledby="spotify-heading">
+  <h2 id="spotify-heading">Listen on Spotify</h2>
+  <p>The HumanCodex playlist &mdash; the Federation&rsquo;s songs on Spotify. This is the same playlist already in the <a href="player.html">music player</a>; it is shown here too so Roger can decide whether it belongs on the home page as well.</p>
+  <iframe src="https://open.spotify.com/embed/playlist/1pMSsmV3cdTvJ9wFOWfBRR"
+  width="100%" height="380" frameborder="0"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  loading="lazy"></iframe>
+  <p><a href="https://open.spotify.com/playlist/1pMSsmV3cdTvJ9wFOWfBRR">Open the HumanCodex playlist on Spotify &rarr;</a></p>
+</section>
 </main>
 <footer>
   <div class="inner">
